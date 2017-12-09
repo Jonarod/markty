@@ -135,4 +135,3 @@ Now, yes, you can re-write some markdown rules using `Markty`, and you could eve
 
 This was **HEAVILY** inspired by [snarkdown](https://github.com/developit/snarkdown) (big kudos to [@Jason Miller](https://github.com/developit)).
 
-
