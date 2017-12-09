@@ -15,11 +15,12 @@ So we depend on **YOU** !!
 ## Let's create a shiny new Markdown rule !
 
 > Requirement: make all text surrounded by two `~`, striked-through.
-> e.g: ~~erase me~~  should become   <s>Erase me</s> 
 
-`npm install markty`
+> e.g: `~~erase me~~`  should become   `<s>Erase me</s>` 
 
-then
+
+
+First install, `npm install markty --save` then:
 
 ```js
 import markty from 'markty'
@@ -56,16 +57,22 @@ console.log(myParsedString)
 ## Nesting
 
 Here is where Markty starts to show its value.
-By using the `true` option like this:  `markty(myString, matchingRule, businessRules, true)`, we tell Markty to continue processing the output of itself until it finds any `matchingRule`'s pattern again. That means it indefinitely scans the **output** string for all possible occurences of the `matchingRule`. This is useful in nesting situations. For example:
+By using the `true` option like this:  
 
-This rule matches any string surrounded with doubling  `/`, `*`, `=`, `-`, `-`, `_`, `^`, and `~`.
+`markty(myString, matchingRule, businessRules, true)` 
+
+we tell Markty to continue processing it's own output until it finds any `matchingRule`'s pattern again. That means it indefinitely scans the **output** string for all possible occurences of the `matchingRule`. This is useful in nesting situations. For example:
+
 ```js
+// This rule matches any string surrounded with doubling  `/`, `*`, `=`, `-`, `-`, `_`, `^`, and `~`.
 let matchingRule = /([/*=\-_^~]{2})(?!\s)((?:(?!\n\n|\s?\1).)+)(\1)/g
 ``` 
 
 We owe to do somthing with those matches, like 
 > if a string is found enclosed by two == : surround it with <mark></mark>
+
 > if a string is found enclosed by two // : surround it with <em></em>
+
 > etc...
 
 A business rule for this regex could look like:
@@ -88,20 +95,18 @@ Then we can use Markty to process a random string:
 
 ```js
 let myString = `
-This should be //italic//, and this should be __underlined__. 
-But here I want this to be both //__italic underlined__//.
+==//__**--marked italic underlined bold striked--**__//==
 `
 
 let myParsedString = markty(myString, matchingRule, businessRules)
 
 console.log(myParsedString)
 // returns:
-// This should be <em>italic</em>, and this should be <u>underlined</u>.
-// But here I want this to be both <em>__italic underlined__</em>.
+// <mark>//__**--marked italic underlined bold striked--**__//</mark>
 
 ```
 
-As you can see, this not quite what we wanted: `<em>__italic underlined__</em>`.
+As you can see, this not quite what we wanted: `<mark>//__**--marked italic underlined bold striked--**__//</mark>`.
 
 To let Markty parse this result again, we need to allow it so by setting the last option to `true`:
 
@@ -110,12 +115,11 @@ let myParsedString = markty(myString, matchingRule, businessRules, true) // adde
 
 console.log(myParsedString)
 // returns:
-// This should be <em>italic</em>, and this should be <u>underlined</u>.
-// But here I want this to be both <em><u>italic underlined</u></em>.
+// <mark><em><u><strong><s>marked italic underlined bold striked</s></strong></u></em></mark>
 ```
 
-And we're done ! `<em><u>italic underlined</u></em>`
-Markty RE-processed the output: RE-tried the `matchingRule` and RE-processed the `businessRules` to it until no further `matchingRule` was found.
+Huray !!
+Markty RE-processed the output: RE-tried the `matchingRule` and RE-processed the `businessRules` until no further `matchingRule` was found.
 
 
 
