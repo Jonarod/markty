@@ -1,6 +1,9 @@
 Write your own markup parser as micro building blocks.
 
 
+[Demo](https://jsfiddle.net/ko3hubbu/19/)
+
+
 ## Why bother with this ?
 
 We all love markdown, pandoc and the likes, but sometimes we may need extra-features, or LESS features. I have been through a bunch of markdown parsers myself and found a limited choice in that you always have to choose between `100kb-I-do-not-really-need-this` libs, and `1kb-I-wish-this-existed` libs.
