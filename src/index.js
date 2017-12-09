@@ -1,6 +1,5 @@
 /* eslint no-unused-vars: "warn" */
-
-function markty(str, reg, rules, unlimited = false) {
+export default function markty(str, reg, rules, unlimited = false) {
   let prev, match, chunk, last = 0, out = '';
   let tokenizer = reg;
   while ( (match = tokenizer.exec(str)) ) {

@@ -1,7 +1,7 @@
 {
   "name": "markty",
   "description": "Tiny Markup Creator.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "dist/markty.js",
   "module": "dist/markty.es.js",
   "jsnext:main": "dist/markty.es.js",
@@ -25,7 +25,10 @@
     "dist"
   ],
   "homepage": "https://github.com/Jonarod/markty",
-  "repository": "Jonarod/markty",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonarod/markty.git"
+  },
   "license": "MIT",
   "keywords": [
     "markdown",
@@ -73,5 +76,12 @@
         "always"
       ]
     }
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Jonarod/markty/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "author": "Jonarod"
 }

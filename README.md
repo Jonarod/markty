@@ -33,15 +33,15 @@ let myString = `Please ~~erase this!~~`
 // 3. match the first pattern (~~)
 // That means only ~~hello world~~ will match but not: ~~ hello world~~, ~~hello world ~~, ~~ hello world ~~, etc...
 // make this pattern look for the string globally
-let matchingRule = /(\~{2})(?!\s)((?:(?!\n\n|\s?\~).)+)\1/g
+let matchingRule = /(\~{2})(?!\s)((?:(?!\n\n|\s?\~).)+)(\1)/g
 
 // Answers the question: what should we do once we matched this ?
 let businessRules = (string, match) => {
-  if (match) {
+  if (match[2]) {
     // match returns an array containing all regex groups matched
     // in this case, match[1] is the 2nd group of our matchingRule regex
     // so match[1] represents the actual string between ~~
-    return '<s>' + match[1] + '</s>'
+    return '<s>' + match[2] + '</s>'
   } 
 }
 
