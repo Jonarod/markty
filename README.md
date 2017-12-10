@@ -2,8 +2,9 @@ Write your own markup parser as micro building blocks.
 
 ## Demos
 
-[Markdown inlines + New](https://jsfiddle.net/ko3hubbu/19/): Some Markdown inlines formatting (no blocks) + other invented ones.
-[Daring Fireball Blocks](https://jsfiddle.net/md9316uu/4/): Just Markdown blocks, without inlines. (missing lists: WIP... )
+- [Markdown inlines + New](https://jsfiddle.net/ko3hubbu/19/): Some Markdown inlines formatting (no blocks) + other invented ones.
+
+- [Daring Fireball Blocks](https://jsfiddle.net/md9316uu/4/): Just Markdown blocks, without inlines. (missing lists: WIP... )
 
 ## Why bother with this ?
 
