@@ -74,9 +74,9 @@ let matchingRule = /([/*=\-_^~]{2})(?!\s)((?:(?!\n\n|\s?\1).)+)(\1)/g
 ``` 
 
 We owe to do somthing with those matches, like 
-> if a string is found enclosed by two == : surround it with <mark></mark>
+> if a string is found enclosed by two == : surround it with `<mark></mark>`
 
-> if a string is found enclosed by two // : surround it with <em></em>
+> if a string is found enclosed by two // : surround it with `<em></em>`
 
 > etc...
 
@@ -111,7 +111,7 @@ console.log(myParsedString)
 
 ```
 
-As you can see, this not quite what we wanted: `<mark>//__**--marked italic underlined bold striked--**__//</mark>`.
+As you can see, this is not quite what we wanted: `<mark>//__**--marked italic underlined bold striked--**__//</mark>`.
 
 To let Markty parse this result again, we need to allow it so by setting the last option to `true`:
 
